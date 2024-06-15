@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,16 @@ class ArtisanFactory extends Factory
      */
     public function definition(): array
     {
+        //selecting a random verification status
+
+        $verification = $this->faker->randomElement(['verified', 'in-review', 'unverified']);
         return [
-            //
+            'name' => $this->faker->name(),
+            'email' => $this->faker->email(),
+            'phone_number' => $this->faker->phoneNumber(),
+            'verification_status' => $verification,
+            'rating' => rand(5, 10),
+            'address_id' => Address::factory()->create()->id
         ];
     }
 }

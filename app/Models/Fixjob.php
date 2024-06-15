@@ -5,23 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Job extends Model
+class Fixjob extends Model
 {
     use HasFactory;
 
-    public function customer(){
+    public function customer()
+    {
         return $this->belongsTo(Customer::class);
     }
 
-    public function artisan(){
+    public function artisan()
+    {
         return $this->belongsTo(Artisan::class);
     }
 
-    public function address(){
-        return $this->hasMany(Address::class);
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
     }
 
-    public function bid(){
+    public function bids()
+    {
         return $this->hasMany(Address::class);
     }
 }

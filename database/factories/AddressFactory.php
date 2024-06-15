@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'street' => $this->faker->streetName(),
+            'city' => $this->faker->city(),
+            'postal_code' => $this->faker->postcode(),
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Artisan;
+use App\Models\Fixjob;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,13 @@ class BidFactory extends Factory
      */
     public function definition(): array
     {
+        $status = $this->faker->randomElement(['bid', 'accepted']);
         return [
-            //
+            'timeframe' => rand(3, 10),
+            'amount' => rand(500, 1000),
+            'status' => $status,
+            'fixjob_id' => Fixjob::factory()->create()->id,
+            'artisan_id' => Artisan::factory()->create()->id
         ];
     }
 }

@@ -9,15 +9,18 @@ class Address extends Model
 {
     use HasFactory;
 
-    public function artisan(){
-        return $this->belongsTo(Artisan::class);
+    public function artisan()
+    {
+        return $this->hasMany(Artisan::class);
     }
 
-    public function job(){
-        return $this->belongsTo(Job::class);
+    public function fixjob()
+    {
+        return $this->hasMany(Fixjob::class);
     }
 
-    public function customer(){
-        return $this->belongsTo(Customer::class);
+    public function customer()
+    {
+        return $this->hasMany(Customer::class);
     }
 }

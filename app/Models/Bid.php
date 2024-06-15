@@ -9,11 +9,13 @@ class Bid extends Model
 {
     use HasFactory;
 
-    public function job(){
-        return $this->belongsTo(Job::class);
+    public function fixjob()
+    {
+        return $this->belongsTo(Fixjob::class);
     }
 
-    public function artisan(){
+    public function artisan()
+    {
         return $this->belongsTo(Artisan::class);
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('timeframe');
             $table->float('amount')->nullable();
             $table->string('status');
-            $table->integer('job_id');
+            $table->integer('fixjob_id');
             $table->integer('artisan_id');
             $table->timestamps();
         });

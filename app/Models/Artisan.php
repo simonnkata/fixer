@@ -9,15 +9,18 @@ class Artisan extends Model
 {
     use HasFactory;
 
-    public function jobs(){
-        return $this->hasMany(Job::class);
+    public function fixjobs()
+    {
+        return $this->hasMany(Fixjob::class);
     }
 
-    public function address(){
+    public function address()
+    {
         return $this->hasMany(Address::class);
     }
 
-    public function bid(){
+    public function bids()
+    {
         return $this->hasMany(Bid::class);
     }
 }

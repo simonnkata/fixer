@@ -9,11 +9,13 @@ class Customer extends Model
 {
     use HasFactory;
 
-    public function jobs(){
-        return $this->hasMany(Job::class);
+    public function fixjobs()
+    {
+        return $this->hasMany(Fixjob::class);
     }
-    
-    public function address(){
-        return $this->hasMany(Address::class);
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
     }
 }
