@@ -16,7 +16,7 @@ class Artisan extends Model
 
     public function address()
     {
-        return $this->hasMany(Address::class);
+        return $this->belongsTo(Address::class);
     }
 
     public function bids()

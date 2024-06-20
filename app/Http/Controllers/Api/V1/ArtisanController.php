@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\StoreArtisanRequest;
 use App\Http\Requests\UpdateArtisanRequest;
 use App\Models\Artisan;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ArtisanCollection;
+use App\Http\Resources\V1\ArtisanResource;
 
 class ArtisanController extends Controller
 {
@@ -13,7 +16,7 @@ class ArtisanController extends Controller
      */
     public function index()
     {
-        //
+        return new ArtisanCollection(Artisan::paginate());
     }
 
     /**
@@ -37,7 +40,7 @@ class ArtisanController extends Controller
      */
     public function show(Artisan $artisan)
     {
-        //
+        return new ArtisanResource($artisan);
     }
 
     /**

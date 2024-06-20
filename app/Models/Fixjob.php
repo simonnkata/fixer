@@ -26,6 +26,6 @@ class Fixjob extends Model
 
     public function bids()
     {
-        return $this->hasMany(Address::class);
+        return $this->hasMany(Bid::class);
     }
 }

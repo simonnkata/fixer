@@ -1,19 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\StoreFixjobRequest;
-use App\Http\Requests\UpdateFixjobRequest;
-use App\Models\Fixjob;
+use App\Http\Requests\StoreBidRequest;
+use App\Http\Requests\UpdateBidRequest;
+use App\Models\Bid;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\BidCollection;
+use App\Http\Resources\V1\BidResource;
 
-class FixjobController extends Controller
+class BidController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return new BidCollection(Bid::paginate());
     }
 
     /**
@@ -27,7 +30,7 @@ class FixjobController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFixjobRequest $request)
+    public function store(StoreBidRequest $request)
     {
         //
     }
@@ -35,15 +38,15 @@ class FixjobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Fixjob $fixjob)
+    public function show(Bid $bid)
     {
-        //
+        return new BidResource($bid);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Fixjob $fixjob)
+    public function edit(Bid $bid)
     {
         //
     }
@@ -51,7 +54,7 @@ class FixjobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFixjobRequest $request, Fixjob $fixjob)
+    public function update(UpdateBidRequest $request, Bid $bid)
     {
         //
     }
@@ -59,7 +62,7 @@ class FixjobController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Fixjob $fixjob)
+    public function destroy(Bid $bid)
     {
         //
     }

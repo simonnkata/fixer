@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\StoreBidRequest;
-use App\Http\Requests\UpdateBidRequest;
-use App\Models\Bid;
+use App\Http\Requests\StoreAddressRequest;
+use App\Http\Requests\UpdateAddressRequest;
+use App\Models\Address;
+use App\Http\Controllers\Controller;
 
-class BidController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Address::all();
     }
 
     /**
@@ -27,7 +28,7 @@ class BidController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBidRequest $request)
+    public function store(StoreAddressRequest $request)
     {
         //
     }
@@ -35,15 +36,15 @@ class BidController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Bid $bid)
+    public function show(Address $address)
     {
-        //
+        return $address;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bid $bid)
+    public function edit(Address $address)
     {
         //
     }
@@ -51,7 +52,7 @@ class BidController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBidRequest $request, Bid $bid)
+    public function update(UpdateAddressRequest $request, Address $address)
     {
         //
     }
@@ -59,7 +60,7 @@ class BidController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Bid $bid)
+    public function destroy(Address $address)
     {
         //
     }
