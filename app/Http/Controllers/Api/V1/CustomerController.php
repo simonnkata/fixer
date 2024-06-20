@@ -8,15 +8,21 @@ use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\CustomerResource;
 use App\Http\Resources\V1\CustomerCollection;
+use Illuminate\Http\Request;
+use App\Services\V1\CustomerQuery;
+use App\Services\V1\Query;
 
 class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new CustomerCollection(Customer::paginate());
+        $filter = new CustomerQuery();
+        $query = Customer::query();
+        $query = $this->buildQuery($request, Customer::class, $filter, $query);
+        return new CustomerCollection($query->paginate());
     }
 
     /**

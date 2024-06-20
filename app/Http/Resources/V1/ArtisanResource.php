@@ -18,7 +18,7 @@ class ArtisanResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'phone' => $this->phone_number,
+            'phone' => $this->phone,
             'verificationStatus' => $this->verification_status,
             'rating' => $this->rating,
             'street' => $this->address->street,

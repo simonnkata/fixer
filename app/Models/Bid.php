@@ -9,6 +9,14 @@ class Bid extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'timeframe',
+        'amount',
+        'status',
+        'fixjob_id',
+        'artisan_id',
+    ];
+
     public function fixjob()
     {
         return $this->belongsTo(Fixjob::class);

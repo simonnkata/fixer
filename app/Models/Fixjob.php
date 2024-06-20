@@ -9,6 +9,16 @@ class Fixjob extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'category',
+        'description',
+        'customer_id',
+        'artisan_id',
+        'address_id',
+        'status',
+        'price'
+    ];
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

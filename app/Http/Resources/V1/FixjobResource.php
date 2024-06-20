@@ -27,7 +27,7 @@ class FixjobResource extends JsonResource
                 'id' => $this->customer->id,
                 'name' => $this->customer->name,
                 'email' => $this->customer->email,
-                'phone' => $this->customer->phone_number
+                'phone' => $this->customer->phone
             ],
             'artisan' => new ArtisanResource($this->artisan),
             'bids' => new BidCollection($this->bids),

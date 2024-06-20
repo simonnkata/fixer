@@ -8,15 +8,21 @@ use App\Models\Artisan;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\ArtisanCollection;
 use App\Http\Resources\V1\ArtisanResource;
+use App\Services\V1\ArtisanQuery;
+use Illuminate\Http\Request;
+
 
 class ArtisanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new ArtisanCollection(Artisan::paginate());
+        $filter = new ArtisanQuery();
+        $query = Artisan::query();
+        $query = $this->buildQuery($request, Artisan::class, $filter, $query);
+        return new ArtisanCollection($query->paginate());
     }
 
     /**

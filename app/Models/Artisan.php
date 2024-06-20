@@ -9,6 +9,16 @@ class Artisan extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'phone',
+        'verification_status',
+        'rating',
+        'address_id',
+        'created_at',
+    ];
+
     public function fixjobs()
     {
         return $this->hasMany(Fixjob::class);

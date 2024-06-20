@@ -8,15 +8,20 @@ use App\Models\Bid;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\BidCollection;
 use App\Http\Resources\V1\BidResource;
+use App\Services\V1\BidQuery;
+use Illuminate\Http\Request;
 
 class BidController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new BidCollection(Bid::paginate());
+        $filter = new BidQuery();
+        $query = Bid::query();
+        $query = $this->buildQuery($request, Bid::class, $filter, $query);
+        return new BidCollection($query->paginate());
     }
 
     /**

@@ -23,7 +23,7 @@ class ArtisanFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->email(),
-            'phone_number' => $this->faker->phoneNumber(),
+            'phone' => $this->faker->phoneNumber(),
             'verification_status' => $verification,
             'rating' => rand(5, 10),
             'address_id' => Address::factory()->create()->id
